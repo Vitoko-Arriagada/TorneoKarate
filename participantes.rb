@@ -72,7 +72,7 @@ class Participantes
   end
 
   def digito_verificador(rut)
-    [*0..9, "K"][rut.to_s.reverse.chars.inject([0, 0]) { |(i, a), n| [i + 1, a - n.to_i * (i % 6 + 2)] }[1] % 11]
+    [*0..9, "K"][rut.to_s.gsub(".", "").reverse.chars.inject([0, 0]) { |(i, a), n| [i + 1, a - n.to_i * (i % 6 + 2)] }[1] % 11]
   end
 
   def aleatorio(inicio, fin)
