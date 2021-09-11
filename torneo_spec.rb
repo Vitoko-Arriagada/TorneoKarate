@@ -1,4 +1,5 @@
 require_relative "torneo"
+require_relative "index"
 
 RSpec.describe Torneo do
   before(:each) do

@@ -182,9 +182,11 @@ class Participantes
       }
       if encontrado[0]
         pPerdidas = rand(0..(7 - pGanadas))
+        pEmpatadas = 7 - (pGanadas + pPerdidas)
         @@participantes[encontrado[1]][:pGanadas] = pGanadas
         @@participantes[encontrado[1]][:pPerdidas] = pPerdidas
-        @@participantes[encontrado[1]][:pEmpatadas] = 7 - (pGanadas + pPerdidas)
+        @@participantes[encontrado[1]][:pEmpatadas] = pEmpatadas
+        @@participantes[encontrado[1]][:puntaje] = (pGanadas * 4) + (pEmpatadas * 3)
         return "Modificacion exitosa"
       else
         puts "\n\tParticipante #{dniValidado[1]}-#{dniValidado[2]} no encontrado\n"
